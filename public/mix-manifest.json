@@ -3,5 +3,7 @@
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
   "/css/main.css": "/css/main.css",
-  "/css/pages.css": "/css/pages.css"
+  "/css/pages.css": "/css/pages.css",
+  "/css/welcome.css": "/css/welcome.css",
+  "/css/articles.css": "/css/articles.css"
 }

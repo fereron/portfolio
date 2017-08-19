@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        User::truncate();
         User::create([
             'name'     => 'Admin11',
             'email'    => 'admin@admin.com',
@@ -20,9 +22,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategoriesSeeder::class);
         $this->call(ArticlesSeeder::class);
-
-
-//        DB::table('users')->truncate();
+//        $this->call(TypeSeeder::class);
+//        $this->call(SparesSeeder::class);
 
 
     }

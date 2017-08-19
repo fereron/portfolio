@@ -7,48 +7,59 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="{{ asset('css/960.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/pages.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
 
     <title>Статьи</title>
 </head>
 <body>
 
-<div class="container_12">
+<section class="container_12">
 
-    <div class="grid_4 ">
+    <aside class="grid_4 ">
         <ul class="categories_list">
 
             @foreach ($categories as $category)
                 <li {{ (Request::url() == route('category',[$category->alias])) ? 'class=active' : '' }} >
-                    <a href="{{ $category->alias }}">{{ $category->title }}</a>
+                    <a href="{{ route('category', $category->alias) }}">{{ $category->title }}</a>
                 </li>
             @endforeach
 
         </ul>
+    </aside>
+
+    <div class="grid_8">
+        <?php /** @var \App\Article $article */ ?>
+{{--{{ dd($articles) }}--}}
+        @forelse ($articles as $article )
+            <article class="article">
+                <img src="{{ $article->image_url }}" alt="">
+
+                <div class="article-description">
+                    <h2>
+                        <a href="{{ route('article', [$article->slug]) }}">
+                            {{ $article->title }}
+                        </a>
+                    </h2>
+                    <div class="created_date">
+                        {{ $article->created_at->format('j F o') }}
+                    </div>
+                    <hr>
+                    <br>
+                    <div class="article-preview">
+                        {{ substr($article->text, 0, 1000) }}...
+                    </div>
+                </div>
+                <footer>
+                    {{--<hr>--}}
+                    <a class="read_more" href="{{ route('article', [$article->slug]) }}">Читать далее...</a>
+                </footer>
+            </article>
+            @empty
+            <h1 style="text-align: center; color: #4c4c4c">Статей нет</h1>
+            @endforelse
     </div>
 
-    <div class="grid_7 suffix_1">
-
-        @foreach ($articles as $article )
-            <div class="article">
-                <h2>
-                    <a href="{{ route('article', [$article->slug]) }}">
-                        {{ $article->title }}
-                    </a>
-                </h2>
-                <div class="created">
-                    {{ $article->created_at->format('j F o') }}
-                </div>
-                <div class="text">
-                    {{ substr($article->text, 0, 1000) }}...
-                </div>
-            </div>
-        @endforeach
-
-    </div>
-
-
-</div>
+</section>
 
 </body>
 </html>

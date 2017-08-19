@@ -6,7 +6,6 @@ html, body, h1,h2,h3,h4,h5,ul,li,a,p {
   margin: 0;
   padding: 0;
   font-family: 'sans-serif', "Sans Serif";
-  //font-size: 15px;
 }
 a {
   text-decoration: none;
@@ -22,12 +21,15 @@ a {
   list-style: none;
 
   li {
-    padding: 5px 0;
-    padding-right: 40px;
+    padding: 5px 40px 5px 0;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     a {
       color: #4c4c4c;
       font-size: 16px;
+      white-space: nowrap;
     }
 
     &.active {
@@ -39,34 +41,5 @@ a {
   }
 }
 
-.article {
-  color: #4c4c4c;
-  border-top: 3px $shadow solid;
-  margin-bottom: 30px;
-
-  h2 {
-    margin-top: 30px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-
-    a {
-      color: #4c4c4c;
-
-      &:hover {
-        color: $text;
-      }
-    }
-  }
-
-  .created {
-    color: $color;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-
-  .text {
-    color: $text;
-  }
-
-}
+@import "articles/article";
+@import "articles/article-show";

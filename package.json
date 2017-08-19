@@ -16,6 +16,12 @@
     "jquery": "^3.1.1",
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "vue": "^2.1.10",
+    "knockout": "~3.4",
+    "knockout.punches": "~0.5",
+    "knockout.validation": "~2.0"
+  },
+  "dependencies": {
+    "knockout-inview": "^2.5.0"
   }
 }

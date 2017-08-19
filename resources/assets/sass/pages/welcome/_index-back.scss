@@ -1,11 +1,8 @@
 .back {
-
   h2 {
     margin-top: 40px;
     margin-bottom: 10px;
   }
-  @import "input";
-
 
   .login_list {
     position: absolute;
@@ -15,26 +12,28 @@
     list-style: none;
     border-radius: 0 0 10px 10px;
     text-align: left;
-    //margin-bottom: 10px;
-  }
-  .login_list li {
-    display: inline-block;
-    padding: 8px 17px;
-    border-right: 1px #fff solid;
-  }
-  .login_list a {
-    color: #fff;
-    display: block;
-    text-decoration: none;
-  }
-  .login_list li:last-child {
-    border: none;
-  }
-  .login_list li:first-child {
-    padding-left: 30px;
-    padding-right: 40px;
-  }
 
+    li {
+      display: inline-block;
+      padding: 8px 17px;
+      border-right: 1px #fff solid;
+    }
+
+    a {
+      color: #fff;
+      display: block;
+      text-decoration: none;
+    }
+
+    li:first-child {
+      padding-left: 30px;
+      padding-right: 40px;
+    }
+
+    li:last-child {
+      border: none;
+    }
+  }
 
   input[type="checkbox"] { display: none; }
 
@@ -51,13 +50,10 @@
     -ms-user-select: none;
   }
 
-
   .captcha {
     margin-top: 18px;
     position: absolute;
     left: 80px;
-    //top: 20px;
-      //margin-top: 150px;
 
     label {
       box-sizing: border-box;
@@ -92,11 +88,5 @@
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
     }
-
   }
-
-
-
-
-
 }

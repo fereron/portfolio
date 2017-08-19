@@ -1,4 +1,4 @@
-<?php
+2<?php
 
 /*
  * This file is part of Laravel Exceptions.

@@ -27,9 +27,18 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property int $cat_id
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereCatId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article latest()
+ * @method static \Illuminate\Database\Query\Builder|\App\Article published()
+ * @property string $image
+ * @property-read \App\Category $category
+ * @property-read mixed $image_url
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereImage($value)
  */
 class Article extends Model
 {
+    const IMAGE_PATH = '/images/articles/';
+
     protected $table = 'articles';
 
     protected $fillable = [
@@ -46,6 +55,24 @@ class Article extends Model
         return $builder->where('status', 'Published');
     }
 
+
+    public function getImageUrlAttribute()
+    {
+        return static::IMAGE_PATH . $this->image;
+    }
+
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 
 }

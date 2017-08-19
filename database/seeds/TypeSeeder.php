@@ -1,10 +1,10 @@
 <?php
 
-use App\Category;
+use App\Type;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class CategoriesSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
 
     /**
@@ -25,16 +25,12 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
+        Type::truncate();
 
-        Category::truncate();
-
-        for ($i=0; $i<10; $i++) {
-
-            $category = Category::create([
-                'title' => $this->faker->words(random_int(2,6), true),
+        for ($i=0; $i<100; $i++) {
+            Type::create([
+                'name' =>   $this->faker->word
             ]);
-
-            echo ' - ' . $i . ': ' . $category->title . "\n";
         }
 
     }

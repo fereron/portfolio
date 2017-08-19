@@ -21,10 +21,11 @@ class CreateArticlesTable extends Migration
             $table->enum('status', [
                 'Draft', 'Review', 'Published'
             ])->default('Draft');
+            $table->string('image');
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+//            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('cat_id');
-            $table->foreign('cat_id')->references('id')->on('categories');
+//            $table->foreign('cat_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

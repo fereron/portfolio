@@ -1,95 +1,134 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
 
-        <title>Laravel</title>
+    <title>Главная</title>
+    <!-- <script>document.documentElement.className = 'js';</script> -->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('/css/jquery.parallax.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/base.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/welcome.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Sans+Serif" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <script>
+        $(window).on('load', function () {
+            $preloader = $('.loaderArea'),
+                $loader = $preloader.find('.loader');
+            $loader.fadeOut();
+            $loader.delay(350).fadeOut('slow');
+        });
+    </script>
 
-            .full-height {
-                height: 100vh;
-            }
+</head>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+<body>
+<!-- <div class="stalk"> -->
 
-            .position-ref {
-                position: relative;
-            }
+<div class="loaderArea">
+    <div class="loader"></div>
+</div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+</div>
 
-            .content {
-                text-align: center;
-            }
+<img id="bg-image" src="{{ asset('/images/main.jpg') }}" alt="" class="layer_1"/>
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+<div class="layer_2">
+    <label>
+        <input type="checkbox"  class="main_input" />
+        <div class="card">
+            <div class="front">
+                <div class="profile-img">
+                    <img src="{{ asset('/images/iron-man.jpg') }}"  alt="">
                 </div>
-            @endif
+                <h2>Руфат Кадиров</h2>
+                <p>Личный сайт веб-разработчика</p>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <ul class="socials">
+                    <li>
+                        <a href="vk.com">
+                            <i class="fa fa-vk fa-inverse"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="facebook.com">
+                            <i class="fa fa-facebook fa-inverse"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="github.com">
+                            <i class="fa fa-github fa-inverse"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav_list">
+                    <li><a href="#">Мои работы</a></li>
+                    <li><a href="#">Обо мне</a></li>
+                    <li><a href="{{ route('articles') }}">Блог</a></li>
+                </ul>
+
+            </div>
+            <div class="back">
+
+                <h2>Авторизуйтесь</h2>
+
+                <form action="">
+
+                    <div class="wrapper">
+                        <div class="material-textfield blue">
+                            <input type="text" placeholder="Login" required />
+                            <label data-content="email">email</label>
+                        </div>
+                        <div class="material-textfield red">
+                            <input type="password" placeholder="Password" required maxlength="25" />
+                            <label data-content="password">password</label>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="captcha">
+                    <input type="checkbox" id="box-1">
+                    <label for="box-1">Вы точно человек?</label>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <ul class="login_list">
+                    <li><a href="#">Войти</a></li>
+                    <li><a href="#">Зарегестрироваться</a></li>
+                    {{--<li><a href="#">Блог</a></li>--}}
+                </ul>
+
+
             </div>
         </div>
-    </body>
+    </label>
+</div>
+
+
+<script src="{{ asset('/js/jquery.parallax.js') }}"></script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+        jQuery( '#bg-image' ).parallax(
+            { mouseport: jQuery('body') },
+            { xparallax: '162px',    yparallax: '100px' },
+        );
+    });
+
+    function setHeiHeight() {
+        $('#hei').css({
+            height: $(window).height() + 'px'
+        });
+    }
+    setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
+    $(window).resize( setHeiHeight ); // обновляем при изменении размеров окна
+
+</script>
+
+
+</body>
 </html>
